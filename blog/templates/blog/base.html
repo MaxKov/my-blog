@@ -1,0 +1,47 @@
+    {% load staticfiles %}
+    <html>
+        <head>
+            <title>Django blog</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        </head>
+        <body>
+            <div class="page-header">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                {% endif %}
+                <h1><a href="/">Django Blog</a></h1>
+            </div>
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                    <div class="col-md-4 sidebar">
+                      <h2>Сайдбар</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid de Platone aut de Democrito loquar? Atque hoc loco similitudines eas, quibus illi uti solent, dissimillimas proferebas. Quid ergo attinet gloriose loqui, nisi constanter loquare? Quid enim? <b>Duo Reges: constructio interrete.</b> </p>
+
+                        <ol>
+                        	<li>Stuprata per vim Lucretia a regis filio testata civis se ipsa interemit.</li>
+                        	<li>His similes sunt omnes, qui virtuti student levantur vitiis, levantur erroribus, nisi forte censes Ti.</li>
+                        	<li>Qui autem esse poteris, nisi te amor ipse ceperit?</li>
+                        	<li>Omnia contraria, quos etiam insanos esse vultis.</li>
+                        	<li>Qua tu etiam inprudens utebare non numquam.</li>
+                        </ol>
+
+
+                        <ul>
+                        	<li>Optime, inquam.</li>
+                        	<li>Et hercule-fatendum est enim, quod sentio -mirabilis est apud illos contextus rerum.</li>
+                        	<li>Si est nihil nisi corpus, summa erunt illa: valitudo, vacuitas doloris, pulchritudo, cetera.</li>
+                        	<li>Multa sunt dicta ab antiquis de contemnendis ac despiciendis rebus humanis;</li>
+                        	<li>Quod ea non occurrentia fingunt, vincunt Aristonem;</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
